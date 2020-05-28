@@ -14,7 +14,7 @@ import com.leetcode.DiameterOfBinaryTree.TreeNode;
  * @author Syed Irfan
  *
  */
-public class CompleteBinaryTree {
+class CompleteBinaryTree {
 
 	/**
 	 * @param args
