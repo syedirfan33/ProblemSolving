@@ -56,7 +56,7 @@ public class LLPalindrome {
 		return head;
 	}
 
-	public class ListNode {
+	public static class ListNode {
 		int val;
 		ListNode next;
 
