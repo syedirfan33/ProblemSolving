@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 /**
  * @author Syed Irfan - 17/06/2020
  */
+
 public class ValidIPAddress {
     String NEITHER = "Neither";
     String IPv4 = "IPv4";
