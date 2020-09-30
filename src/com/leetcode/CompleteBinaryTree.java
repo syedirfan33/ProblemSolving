@@ -6,10 +6,6 @@ package com.leetcode;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import javax.management.Query;
-
-import com.leetcode.DiameterOfBinaryTree.TreeNode;
-
 /**
  * @author Syed Irfan
  *

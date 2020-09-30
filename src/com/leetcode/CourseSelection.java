@@ -43,6 +43,7 @@ public class CourseSelection {
 				}
 			}
         }
+
         return count == numCourses;
     }
     

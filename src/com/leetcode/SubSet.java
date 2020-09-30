@@ -9,16 +9,16 @@ import java.util.List;
 public class SubSet {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
-        res.add(new ArrayList<>());
-        if (nums.length == 0) return res;
-        for (int num : nums) {
-            int size = res.size();
-            for (int i = 0; i < size; i++) {
-                List<Integer> cur = new ArrayList<>(res.get(i));
-                cur.add(num);
-                res.add(cur);
-            }
-        }
+        dfs(res, 0, new ArrayList<>(), nums);
         return res;
+    }
+
+    private void dfs(List<List<Integer>> res, int idx, List<Integer> cur, int[] nums) {
+        res.add(new ArrayList<>(cur));
+        for (int i = idx; i < nums.length; i++) {
+            cur.add(nums[i]);
+            dfs(res, i + 1, cur, nums);
+            cur.remove(cur.size() - 1);
+        }
     }
 }

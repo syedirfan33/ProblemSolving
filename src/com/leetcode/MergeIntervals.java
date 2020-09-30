@@ -45,6 +45,7 @@ public class MergeIntervals {
 			} else {
 				current = intervals[i];
 				res.add(current);
+				Arrays.asList(123,344);
 			}
 		}
 		return res.toArray(new int[res.size()][]);

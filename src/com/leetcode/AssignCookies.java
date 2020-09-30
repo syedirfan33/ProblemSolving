@@ -3,6 +3,8 @@
  */
 package com.leetcode;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Arrays;
 
 /**
@@ -14,11 +16,7 @@ public class AssignCookies {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-	}
-	
 	public int findContentChildren(int[] g, int[] s) {
 	       Arrays.sort(g);
 	       Arrays.sort(s);
@@ -36,5 +34,13 @@ public class AssignCookies {
 	       } 
 	        return contentChildren;
 	    }
+
+	public static void main(String[] args) {
+		Instant start = Instant.now();
+
+		Instant end = Instant.now();
+		Duration timeElapsed = Duration.between(start, end);
+		System.out.println("Time taken: "+ timeElapsed.toMillis() +" milliseconds");
+	}
 
 }
