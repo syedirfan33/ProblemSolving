@@ -22,7 +22,7 @@ public class MergeIntervals {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[][] inp = { { 1, 3 }, { 2, 6 }, { 8, 10 }, { 15, 18 } };
-		int[][] inp2 = { { 1, 4 }, { 2, 3 } };
+		int[][] inp2 = { {1,5},{3,6},{2,8} };
 
 		System.out.println(Arrays.deepToString(merge(inp2)));
 	}

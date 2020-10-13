@@ -22,4 +22,10 @@ public class CombinataionSum {
             cur.remove(cur.size() - 1);
         }
     }
+
+    public static void main(String[] args) {
+        CombinataionSum sum = new CombinataionSum();
+        sum.combinationSum(new int[]{2,3,5}, 8);
+        System.out.println();
+    }
 }

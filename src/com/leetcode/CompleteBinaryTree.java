@@ -10,7 +10,7 @@ import java.util.Queue;
  * @author Syed Irfan
  *
  */
-class CompleteBinaryTree {
+public class CompleteBinaryTree {
 
 	/**
 	 * @param args
