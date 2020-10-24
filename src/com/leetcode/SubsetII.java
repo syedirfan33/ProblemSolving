@@ -15,10 +15,11 @@ public class SubsetII {
     private void helper(ArrayList<Integer> A, ArrayList<ArrayList<Integer>> res, List<Integer> cur, int idx) {
         res.add(new ArrayList<>(cur));
         for (int i = idx; i < A.size(); i++) {
-            if (i > idx && A.get(i) == A.get(i - 1)) continue;
-            cur.add(A.get(i));
-            helper(A, res, cur, i + 1);
-            cur.remove(cur.size() - 1);
+            if (i == idx || A.get(i) != A.get(i - 1)) {
+                cur.add(A.get(i));
+                helper(A, res, cur, i + 1);
+                cur.remove(cur.size() - 1);
+            }
         }
     }
 }
