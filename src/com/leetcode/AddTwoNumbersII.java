@@ -2,6 +2,7 @@ package com.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class AddTwoNumbersII {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -41,6 +42,40 @@ public class AddTwoNumbersII {
 
         }
         return carry == 0 ? res.next : res;
+    }
+
+
+    //Using stacks.
+    public ListNode addTwoNumbersII(ListNode l1, ListNode l2) {
+        Stack<Integer> s1 = new Stack<>();
+        while (l1 != null) {
+            s1.push(l1.val);
+            l1 = l1.next;
+        }
+        if (s1.isEmpty()) return l2;
+
+        Stack<Integer> s2 = new Stack<>();
+        while (l2 != null) {
+            s2.push(l2.val);
+            l2 = l2.next;
+        }
+        if (s2.isEmpty()) return l1;
+
+        int carry = 0;
+        ListNode res = new ListNode(0);
+        while (!s1.isEmpty() || !s2.isEmpty()) {
+            int sum = 0;
+            if (!s1.isEmpty()) sum += s1.pop();
+            if (!s2.isEmpty()) sum += s2.pop();
+            sum += carry;
+
+            res.val = sum % 10;
+            carry = sum / 10;
+            ListNode cNode = new ListNode(carry);
+            cNode.next = res;
+            res = cNode;
+        }
+        return res.val != 0 ? res : res.next;
     }
 
 

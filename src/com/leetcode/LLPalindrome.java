@@ -25,9 +25,6 @@ public class LLPalindrome {
     public boolean isPalindrome(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
-        List<List<String>> res = new ArrayList();
-        Map<String, List<String>> map = new HashMap();
-        res.addAll(map.values());
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next;

@@ -25,7 +25,7 @@ public class PossibleBipartition {
         int[] colors = new int[N + 1];
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 1; i < N + 1; i++) {
-            if (colors[i] == 0) {
+            if (colors[i] == 0) { // [[1,2],[1,3],[2,4]]
                 colors[i] = 1;
                 queue.add(i);
                 while (!queue.isEmpty()) {

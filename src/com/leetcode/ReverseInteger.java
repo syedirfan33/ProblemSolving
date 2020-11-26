@@ -7,7 +7,7 @@ package com.leetcode;
  * @author Syed Irfan
  *
  */
-public class ReverseInteger {
+public class  ReverseInteger {
 
 	/**
 	 * @param args

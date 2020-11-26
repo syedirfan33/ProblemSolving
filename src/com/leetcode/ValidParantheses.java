@@ -3,10 +3,7 @@
  */
 package com.leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author Syed Irfan
@@ -42,6 +39,30 @@ public class ValidParantheses {
 			}
 		}
 		return stack.size() == 0;
+	}
+
+	// Another easy solution
+
+	public boolean isValidII(String s) {
+		Stack<Character> stack = new Stack<>();
+		for(char c: s.toCharArray()){
+			if(c == '(' || c == '{' || c == '[') stack.push(c);
+			else{
+				if(stack.isEmpty()) return false;
+				char top = stack.pop();
+				if(top != getPair(c)) return false;
+			}
+		}
+		return stack.isEmpty();
+	}
+
+	private char getPair(char c){
+		switch(c){
+			case ')': return '(';
+			case ']': return '[';
+			case '}': return '{';
+			default: return ' ';
+		}
 	}
 
 }

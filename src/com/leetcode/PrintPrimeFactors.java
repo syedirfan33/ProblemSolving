@@ -20,7 +20,6 @@ public class PrintPrimeFactors {
                 }
             }
             if (cur == 1) {
-                System.out.println(num);
                 count++;
             }
             num++;

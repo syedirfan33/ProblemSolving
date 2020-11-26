@@ -64,6 +64,8 @@ public class ReorderList {
 		return p1;
 	}
 
+	// 1 2   // 4 3
+	// 1 4 2 3
 
 	void merge(ListNode l1, ListNode l2) {
 		while (l1 != null) {
