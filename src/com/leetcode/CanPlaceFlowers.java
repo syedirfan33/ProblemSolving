@@ -4,18 +4,18 @@ public class CanPlaceFlowers {
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
         if (n == 0) return true;
         for (int i = 0; i < flowerbed.length; i++) {
-            if (canPlace(flowerbed, i)) {
+            if (flowerbed[i] == 0 && canPick(i, flowerbed)) {
                 flowerbed[i] = 1;
                 n--;
+                if (n == 0) return true;
             }
-            if (n == 0) return true;
         }
         return false;
     }
 
-    private boolean canPlace(int[] flowered, int i) {
-        int prev = i == 0 ? i : i - 1;
-        int next = i == flowered.length - 1 ? i : i + 1;
-        return flowered[i] == 0 && flowered[prev] == 0 && flowered[next] == 0;
+    private boolean canPick(int idx, int[] f) {
+        int prev = idx == 0 ? 0 : f[idx - 1];
+        int next = idx == f.length - 1 ? 0 : f[idx + 1];
+        return prev == 0 && next == 0;
     }
 }

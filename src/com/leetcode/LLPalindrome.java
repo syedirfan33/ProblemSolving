@@ -3,10 +3,7 @@
  */
 package com.leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author Syed Irfan
@@ -23,11 +20,12 @@ public class LLPalindrome {
     }
     
     public boolean isPalindrome(ListNode head) {
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         ListNode slow = head;
         ListNode fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
-            fast = fast.next;
+            fast = fast.next.next;
         }
         
         slow = reverse(slow);

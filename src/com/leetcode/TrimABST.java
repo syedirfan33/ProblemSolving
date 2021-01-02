@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import java.util.PriorityQueue;
+
 public class TrimABST {
 
     public class TreeNode {
