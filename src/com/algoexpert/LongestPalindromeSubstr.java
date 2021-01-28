@@ -16,7 +16,8 @@ public class LongestPalindromeSubstr {
 		System.out.println(longestPalindromeSubstring("aaaaba"));
 
 	}
-	
+
+	// Refer to leetcode's solution for better understanding
 	public static String longestPalindromeSubstring(String str) {
 		int[] current = {0,1};
 		for(int i=0;i<str.length();i++) {

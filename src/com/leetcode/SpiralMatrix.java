@@ -41,7 +41,7 @@ public class SpiralMatrix {
 	                res.add(matrix[i][right]);
 	            }
 	            right--;
-	            for(int i=right;i>=left && res.size() < size;i--){
+	            for(int i=right;i>=left && res.size() < size;i--){ // To prevent edge test case
 	                res.add(matrix[bottom][i]);
 	            }
 	            bottom--;

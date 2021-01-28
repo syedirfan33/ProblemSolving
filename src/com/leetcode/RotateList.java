@@ -2,23 +2,24 @@ package com.leetcode;
 
 public class RotateList {
     public ListNode rotateRight(ListNode head, int k) {
-        if (head == null || k == 0) {
-            return head;
-        }
-        ListNode p = head;
+        if (head == null || head.next == null) return head;
         int len = 1;
-        while (p.next != null) {
-            p = p.next;
+        ListNode tail = head;
+        while (tail.next != null) {
             len++;
+            tail = tail.next;
         }
-        p.next = head;
         k %= len;
-        for (int i = 0; i < len - k; i++) {
-            p = p.next;
+        if (k == 0) return head;
+        ListNode newTail = head;
+        for (int i = 1; i < len - k; i++) {
+            newTail = newTail.next;
         }
-        head = p.next;
-        p.next = null;
-        return head;
+        ListNode newHead = newTail.next;
+        tail.next = head;
+        newTail.next = null;
+        return newHead;
+
     }
 
     public static class ListNode {
