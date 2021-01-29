@@ -15,8 +15,7 @@ public class FindLoop {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		System.out.println(4 * (4 - 1) / 2);
 	}
 
 	public static LinkedList findLoop(LinkedList head) {

@@ -2,17 +2,25 @@ package com.leetcode;
 
 public class DecodedStringAtIndex {
     public String decodeAtIndex(String S, int K) {
-        StringBuilder res = new StringBuilder();
-        int i = 0;
-        while (i < S.length()) {
-            char c = S.charAt(i);
-            if (Character.isDigit(c)) {
-                res = repeat(c, res);
-            } else {
-                res.append(c);
+        long size = 0;
+        for(char c: S.toCharArray()){
+            if(Character.isDigit(c)){
+                size *= c - '0';
+            }else{
+                size++;
             }
-
-            if (res.length() <= K) return res.charAt(K - 1) + "";
+        }
+        for(int i = S.length() - 1; i >= 0; i--){
+            char c = S.charAt(i);
+            K %= size;
+            if(K == 0 && Character.isLetter(c)){
+                return Character.toString(c);
+            }
+            if(Character.isDigit(c)){
+                size /= c - '0';
+            }else{
+                size--;
+            }
         }
         return "";
     }
