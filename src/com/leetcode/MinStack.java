@@ -20,6 +20,7 @@ public class MinStack {
 	}
 	
 	/** initialize your data structure here. */
+	// Can use Linked list instead of stack, see algo expert's solution minMaxStackConstruction
     Stack<Integer> stack = new Stack<>();
     Stack<Integer> min_stack = new Stack<>();
     public MinStack() {

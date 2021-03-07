@@ -23,6 +23,7 @@ public class MinimumRemoveToMakeValidParanthesis {
                     queue.remove();
                 }
             }
+
         }
         while (!queue.isEmpty()) {
             int idx = queue.remove();

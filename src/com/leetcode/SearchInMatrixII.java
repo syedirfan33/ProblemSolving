@@ -7,7 +7,7 @@ package com.leetcode;
  * @author Syed Irfan
  *
  */
-public class SearchValueInMatrix {
+public class SearchInMatrixII {
 
 	/**
 	 * @param args

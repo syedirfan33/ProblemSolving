@@ -1,42 +1,30 @@
 package com.leetcode;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * @author Syed Irfan - 29/05/2020
  */
 public class IsGraphBipartite {
     public boolean isBipartite(int[][] graph) {
-        int n = graph.length;
-        List<Integer>[] arr = new List[n];
-        
-        for (int i = 0; i < n; i++) {
-            List<Integer> li = new ArrayList<>();
-            for (int num : graph[i]) {
-                li.add(num);
-            }
-            arr[i] = li;
-        }
-        
-        int[] colors = new int[n];
+        int len = graph.length;
+        int[] colors = new int[len];
         Queue<Integer> queue = new LinkedList<>();
-        for (int i = 0; i < n; i++) {
-            if (colors[i] == 0) {
-                colors[i] = 1;
-                queue.add(i);
-                while (!queue.isEmpty()) {
-                    int cur = queue.remove();
-                    for (int neighbour : arr[cur]) {
-                        if (colors[neighbour] == colors[cur]) return false;
-                        if (colors[neighbour] == 0) {
-                            queue.add(neighbour);
-                            colors[neighbour] = -colors[cur];
-                        }
-                    }
+        for (int i = 0; i < len; i++) {
+            if (colors[i] != 0) continue;
+            queue.add(i);
+            colors[i] = 1;
+            while (!queue.isEmpty()) {
+                int cur = queue.remove();
+                for (int adj : graph[cur]) {
+                    if (colors[adj] == 0) {
+                        colors[adj] = -colors[cur];
+                        queue.add(adj);
+                    } else if (colors[cur] == colors[adj]) return false;
                 }
             }
         }
-        
         return true;
     }
 }

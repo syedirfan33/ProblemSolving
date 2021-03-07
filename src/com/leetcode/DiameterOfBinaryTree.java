@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.leetcode;
 
@@ -9,41 +9,39 @@ package com.leetcode;
  */
 public class DiameterOfBinaryTree {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	public int diameterOfBinaryTree(TreeNode root) {
-		if (root == null)
-			return 0;
+    int res = 0;
 
-		int l_h = height(root.left);
-		int r_h = height(root.right);
+    public int diameterOfBinaryTree(TreeNode root) {
+        helper(root);
+        return res;
+    }
 
-		int l_d = diameterOfBinaryTree(root.left);
-		int r_d = diameterOfBinaryTree(root.right);
+    private int helper(TreeNode root) {
+        if (root == null) return 0;
+        int leftH = helper(root.left);
+        int rightH = helper(root.right);
+        int diameter = leftH + rightH;
+        res = Math.max(res, diameter);
+        int height = 1 + Math.max(leftH, rightH);
+        return height;
+    }
 
-		return Math.max(l_h + r_h, Math.max(l_d, r_d));
-	}
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
 
-	private static int height(TreeNode node) {
-		if (node == null)
-			return 0;
-		return 1 + Math.max(height(node.left), height(node.right));
-	}
-
-	public class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
+        TreeNode(int x) {
+            val = x;
+        }
+    }
 
 }

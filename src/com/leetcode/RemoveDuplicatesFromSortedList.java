@@ -29,4 +29,17 @@ public class RemoveDuplicatesFromSortedList {
         }
         return node;
     }
+
+    // Without using extra space
+    public ListNode deleteDuplicatesII(ListNode head) {
+        ListNode res = new ListNode();
+        while(res.next != null){
+            if(res.val == res.next.val){
+                res.next = res.next.next;
+            }else{
+                res = res.next;
+            }
+        }
+        return res;
+    }
 }

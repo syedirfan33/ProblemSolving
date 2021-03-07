@@ -11,7 +11,7 @@ public class PossibleBipartition {
         System.out.println(possibleBipartition(4, inp));
     }
     
-    // It is a typical graph search problem based on Bipartite graph (coloring technique)
+    // It is a typical graph search problem based on Bipartite graph (coloring technique), same solution as is graph bipartite. Just that we nee to create a adj list
     public static boolean possibleBipartition(int N, int[][] dislikes) {
         List<Integer>[] arr = new List[N + 1];
         for (int i = 1; i < N + 1; i++) {
@@ -24,7 +24,7 @@ public class PossibleBipartition {
         
         int[] colors = new int[N + 1];
         Queue<Integer> queue = new LinkedList<>();
-        for (int i = 1; i < N + 1; i++) {
+        for (int i = 1; i <= N ; i++) {
             if (colors[i] == 0) { // [[1,2],[1,3],[2,4]]
                 colors[i] = 1;
                 queue.add(i);

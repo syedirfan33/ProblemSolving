@@ -8,17 +8,7 @@ import java.util.*;
  */
 public class ATestClass {
     public static void main(String[] args) {
-//        StringBuilder res = new StringBuilder();
-//        String a = "   ";
-//        System.out.println(a+"a");
-//        Map<String, Object> map = new HashMap<>();
-//        map.put("s", "SPLIT_BIL");
-//        TxnType mdf = TxnType.valueOf(map.get("s").toString());
-//        System.out.println(mdf);
-        
-        String b = "true";
-        System.out.println(Boolean.parseBoolean("true"));
-        System.out.println(Calendar.getInstance().getTimeInMillis());
+
     }
     
    
