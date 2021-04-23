@@ -6,7 +6,7 @@ public class LongestPalindromicSubString {
 
     public String longestPalindrome(String str) {
         for (int i = 0; i < str.length(); i++) {
-            getLongestPalindrome(str, i - 1, i + 1); // for odd length - a b c
+            getLongestPalindrome(str, i, i); // for odd length - a b c
             getLongestPalindrome(str, i, i + 1); // for even length - b a a b
         }
         return str.substring(startPos, startPos + maxLen);

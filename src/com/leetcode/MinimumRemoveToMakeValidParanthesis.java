@@ -1,36 +1,24 @@
 package com.leetcode;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.Stack;
 
 /**
  * @author Syed Irfan - 15/06/2020
  */
 public class MinimumRemoveToMakeValidParanthesis {
     public String minRemoveToMakeValid(String s) {
-        char[] res = s.toCharArray();
-        Queue<Integer> queue = new LinkedList<>();
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == '(') {
-                queue.add(i);
-                
-            } else if (s.charAt(i) == ')') {
-                if (queue.isEmpty()) {
-                    res[i] = '0';
-                } else {
-                    queue.remove();
-                }
+        char[] arr = s.toCharArray();
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == '(') stack.push(i);
+            else if (arr[i] == ')') {
+                if (!stack.isEmpty()) stack.pop();
+                else arr[i] = '-'; // We found invalid character
             }
-
         }
-        while (!queue.isEmpty()) {
-            int idx = queue.remove();
-            res[idx] = '0';
-        }
-        
-        return new String(res).replaceAll("0", "");
+        while (!stack.isEmpty()) arr[stack.pop()] = '-';
+        s = new String(arr).replaceAll("-", "");
+        return s;
     }
 }
 

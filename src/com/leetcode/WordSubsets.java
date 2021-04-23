@@ -44,4 +44,33 @@ public class WordSubsets {
         }
         return true;
     }
+
+    public List<String> wordSubsetsII(String[] A, String[] B) {
+        List<String> res = new ArrayList<>();
+        int[] bMax = new int[26];
+        for(String b: B){
+            int[] cur = count(b);
+            for(int i = 0; i < 26; i++){
+                bMax[i] = Math.max(bMax[i], cur[i]);
+            }
+        }
+
+        for(String a: A){
+            int[] cur = count(a);
+            int i;
+            for(i = 0; i < 26; i++){
+                if(cur[i] < bMax[i]) break;
+            }
+            if(i == 26) res.add(a);
+        }
+        return res;
+    }
+
+    private int[] count(String str){
+        int[] res = new int[26];
+        for(char c: str.toCharArray()){
+            res[c - 'a']++;
+        }
+        return res;
+    }
 }

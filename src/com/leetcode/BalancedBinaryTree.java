@@ -1,6 +1,8 @@
 package com.leetcode;
 
 public class BalancedBinaryTree {
+
+    // This problem is same as height balanced binary tree Algo Expert, see method 2 as well
     boolean res = true;
 
     public boolean isBalanced(TreeNode root) {
@@ -17,6 +19,24 @@ public class BalancedBinaryTree {
             return 0;
         }
         return Math.max(leftH, rightH);
+    }
+
+    public boolean isBalancedII(TreeNode root) {
+        if(root == null){
+            return true;
+        }
+        return helper(root) != -1;
+    }
+    private int helper(TreeNode root){
+        if(root == null){
+            return 0;
+        }
+        int left = helper(root.left);
+        int right = helper(root.right);
+        if(left == -1 || right == -1 || Math.abs(left - right) > 1){
+            return -1;
+        }
+        return Math.max(left, right) + 1;
     }
 
     public class TreeNode {

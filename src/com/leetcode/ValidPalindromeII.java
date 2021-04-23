@@ -14,7 +14,6 @@ public class ValidPalindromeII {
                 left++;
                 right--;
             }
-
         }
         return true;
     }
