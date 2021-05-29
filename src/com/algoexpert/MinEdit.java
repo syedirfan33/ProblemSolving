@@ -16,7 +16,8 @@ public class MinEdit {
 		// TODO Auto-generated method stub
 
 	}
-	
+
+	// Very similar to longest common subseq, delete operations of 2 strings
 	public static int levenshteinDistance(String str1, String str2) {
 		int[][] edits = new int[str1.length()+1][str2.length()+1];
 		for(int i=0;i<str1.length()+1;i++) {

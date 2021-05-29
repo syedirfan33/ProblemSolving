@@ -18,9 +18,10 @@ public class LongestCommonSubsequence {
 		// TODO Auto-generated method stub
 
 	}
-	
-	
-	 public int longestCommonSubsequence(String text1, String text2) {
+
+	// Very similar to min edit distance, delete operations of 2 strings
+
+	public int longestCommonSubsequence(String text1, String text2) {
 	        int rows = text1.length();
 	        int columns = text2.length();
 	        int[][] dp = new int[rows+1][columns+1];

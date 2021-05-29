@@ -1,7 +1,6 @@
 package com.leetcode;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class SudokuSolver {
     // I solved it myself based on valid sudoku approach and little backtracking help from algo expert

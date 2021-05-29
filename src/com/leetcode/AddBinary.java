@@ -65,4 +65,9 @@ public class AddBinary {
 
         return result.reverse().toString();
     }
+
+    public static void main(String[] args) {
+        Integer in = 100;
+        System.out.println(in.longValue());
+    }
 }

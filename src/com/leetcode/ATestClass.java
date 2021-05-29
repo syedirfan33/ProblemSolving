@@ -11,10 +11,12 @@ import java.util.*;
  */
 public class ATestClass {
     public static void main(String[] args) {
-        BigDecimal a = new BigDecimal("1234567.995");
-        DecimalFormat df = new DecimalFormat("#,###,###.00");
-        System.out.println(new BigDecimal(df.format(a)));
+
         StringBuilder res = new StringBuilder();
+        Object[] arr = new Object[]{null};
+        arr[0] = "hi";
+        System.out.println(arr[0]);
+        System.out.println("0.7.5".compareTo("0.7.4"));
     }
     
    
