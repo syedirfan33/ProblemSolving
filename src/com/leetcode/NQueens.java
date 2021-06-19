@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NQueens {
-    // Having same idea as sudoku solver, watch video from Anuj bhaiyaa. isValid method can be improved
+    // Having same idea as sudoku solver, watch video from Anuj bhaiyaa. isValid method can be improved ( see Coding decoded video)
     List<List<String>> res;
-    int[][] dirs = {{1, 1}, {-1, 1}, {1, -1}, {-1, -1}};
+    int[][] dirs = {{-1, 1}, {-1, -1}}; // only top left and top right diagonal need to be explored. Others don't need.
 
     public List<List<String>> solveNQueens(int n) {
         res = new ArrayList<>();
@@ -32,8 +32,8 @@ public class NQueens {
 
     private boolean isValid(char[][] board, int row, int col, int n) {
 
-        for (int i = 0; i < board.length; i++) {
-            if (board[i][col] == 'Q' || board[row][i] == 'Q')
+        for (int i = 0; i <= row; i++) {
+            if (board[i][col] == 'Q')
                 return false;
             for (int[] dir : dirs) {
                 int nextX = dir[0] * i + row;
