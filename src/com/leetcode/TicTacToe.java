@@ -49,8 +49,7 @@ public class TicTacToe {
         if (move == size * size) {
             System.out.println("It's a draw");
             return false;
-        }
-        return false;
+        }return false;
     }
 }
 

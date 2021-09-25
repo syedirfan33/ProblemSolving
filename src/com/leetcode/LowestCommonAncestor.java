@@ -20,24 +20,19 @@ public class LowestCommonAncestor {
     }
 
 
-    private boolean helper(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null) return false;
-        if (root == p || root == q) {
-            boolean foundOther = helper(root.left, p, q);
-            if (foundOther) {
-                res = root;
-            }
-            foundOther = helper(root.right, p, q);
-            if (foundOther) {
-                res = root;
-            }
-            return true;
-        }
-        boolean foundFirst = helper(root.left, p, q);
-        boolean foundSecond = helper(root.right, p, q);
-        if (foundFirst && foundSecond) {
-            res = root;
-        }
-        return foundFirst || foundSecond;
+    private TreeNode helper(TreeNode node, TreeNode p, TreeNode q) {
+        if (node == null || p == node || q == node)
+            return node;
+
+        TreeNode firstMatch = helper(node.left, p, q);
+        TreeNode secondMatch = helper(node.right, p, q);
+
+        if (firstMatch != null && secondMatch != null)
+            return node;
+        else if (firstMatch != null)
+            return firstMatch;
+        else
+            return secondMatch;
     }
 }
+

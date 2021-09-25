@@ -1,38 +1,40 @@
 package com.leetcode;
 
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
-import java.util.Set;
-import java.util.stream.IntStream;
 
 public class CourseSelectionII {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
+
         int[] indegree = new int[numCourses];
-        for (int[] pair : prerequisites) {
-            indegree[pair[0]]++;
+        List<List<Integer>> adjList = new ArrayList<>();
+        for (int i = 0; i < numCourses; i++) {
+            adjList.add(new ArrayList<>());
         }
-        Queue<Integer> queue = new LinkedList<>();
-        for (int i = 0; i < indegree.length; i++) {
-            if (indegree[i] == 0) {
+        for (int[] arr : prerequisites) {
+            indegree[arr[0]]++;
+            adjList.get(arr[1]).add(arr[0]);
+        }
+        Queue<Integer> queue = new ArrayDeque<>();
+        for (int i = 0; i < numCourses; i++) {
+            if (indegree[i] == 0)
                 queue.add(i);
-            }
         }
         int[] res = new int[numCourses];
         int idx = 0;
         while (!queue.isEmpty()) {
-            int cur = queue.remove();
+            int cur = queue.poll();
             res[idx++] = cur;
-            for (int[] pair : prerequisites) {
-                if (cur == pair[1]) {
-                    indegree[pair[0]]--;
-                    if (indegree[pair[0]] == 0) queue.add(pair[0]);
-                }
+            for (int next : adjList.get(cur)) {
+                indegree[next]--;
+                if (indegree[next] == 0) queue.add(next);
             }
         }
-        if (idx != numCourses) {
-            return new int[]{};
-        }
+        if (idx < numCourses) return new int[]{};
         return res;
     }
+
+
 }

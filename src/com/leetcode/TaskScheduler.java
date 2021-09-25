@@ -2,7 +2,7 @@ package com.leetcode;
 
 import java.util.Arrays;
 
-public class TaskScheduler {
+public class TaskScheduler{
     public int leastInterval(char[] tasks, int n) {
         int[] arr = new int[26];
         for (char c : tasks) {

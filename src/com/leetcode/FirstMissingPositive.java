@@ -1,6 +1,8 @@
 package com.leetcode;
 
 public class FirstMissingPositive {
+
+    // 4 3 2 1
     public int firstMissingPositive(int[] nums) {
         int n = nums.length;
         for (int i = 0; i < n; i++) {

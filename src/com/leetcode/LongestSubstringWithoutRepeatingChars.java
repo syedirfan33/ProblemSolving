@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LongestSubstringWithoutRepeatingChars {
-
     // While most of the solutions out there claim that O(n), I think it's o(n2), so I deduced another solution
     public int lengthOfLongestSubstring(String s) {
         if (s == null) return 0;
